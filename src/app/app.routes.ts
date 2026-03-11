@@ -7,6 +7,8 @@ import { Class } from './databinding/class/class';
 import { Style } from './databinding/style/style';
 import { Interpolation } from './databinding/interpolation/interpolation';
 import { EventBinding } from './databinding/event-binding/event-binding';
+import { ProductList } from './products/product-list/product-list';
+import { ProductDetails } from './products/product-details/product-details';
 
 export const routes: Routes = [
     { path: 'home', component: Home},
@@ -17,5 +19,13 @@ export const routes: Routes = [
     { path: 'attribute', component: Attribute},
     { path: 'class', component: Class},
     { path: 'style', component: Style},
-    { path: '', redirectTo: 'home', pathMatch: 'full'}
+    { path: '', redirectTo: 'home', pathMatch: 'full'},
+    { path: 'product-list', component: ProductList, children: [
+        {
+            path: 'id',
+            children: [
+                { path: 'product-details', component: ProductDetails}
+            ]
+        },
+    ]}
 ];

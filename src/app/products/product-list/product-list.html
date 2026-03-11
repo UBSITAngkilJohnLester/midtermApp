@@ -1,0 +1,27 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    @for (e of products; track e.id) {
+      <tr class="table-active">
+        <th scope="row">{{e.id}}</th>
+        <td>{{e.name}}</td>
+        <td>{{e.status}}</td>
+        <td>
+            <a [routerLink] = "['/product-list', e.id, 'product-details']" (onClick) = 'getProduct(e)'>View Details</a>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+
+
+  <div class = "container mt-4">
+    <router-outlet></router-outlet>
+  </div>
