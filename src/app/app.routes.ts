@@ -9,23 +9,21 @@ import { Interpolation } from './databinding/interpolation/interpolation';
 import { EventBinding } from './databinding/event-binding/event-binding';
 import { ProductList } from './products/product-list/product-list';
 import { ProductDetails } from './products/product-details/product-details';
+import { SuppliersList } from './Components/suppliers-list/suppliers-list';
+import { SupplierDetails } from './Components/supplier-details/supplier-details';
 
 export const routes: Routes = [
-    { path: 'home', component: Home},
-    { path: 'interpolation', component: Interpolation},
-    { path: 'property-binding', component: Property},
-    { path: 'event-binding', component: EventBinding},
-    { path: 'two-way', component: TwoWay},
-    { path: 'attribute', component: Attribute},
-    { path: 'class', component: Class},
-    { path: 'style', component: Style},
-    { path: '', redirectTo: 'home', pathMatch: 'full'},
-    { path: 'product-list', component: ProductList, children: [
-        {
-            path: 'id',
-            children: [
-                { path: 'product-details', component: ProductDetails}
-            ]
-        },
-    ]}
+    { path: 'home', component: Home },
+    { path: 'interpolation', component: Interpolation },
+    { path: 'property-binding', component: Property },
+    { path: 'event-binding', component: EventBinding },
+    { path: 'two-way', component: TwoWay },
+    { path: 'attribute', component: Attribute },
+    { path: 'class', component: Class },
+    { path: 'style', component: Style },
+    { path: 'product-list', component: ProductList },
+    { path: 'product-list/:id/product-details', component: ProductDetails },
+    { path: 'suppliers', component: SuppliersList },
+    { path: 'suppliers/:id', component: SupplierDetails },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
